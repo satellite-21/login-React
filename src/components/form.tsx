@@ -1,7 +1,6 @@
 import React from "react";
 import { useState  } from "react";
 import genericStyles from './form.module.scss'
-import { TRUE } from "sass";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,7 +12,7 @@ interface WebFormProps {
 
 const WebForm: React.FC<WebFormProps> = (props) => {
     
-
+    const [btnColor, setButtonColor] = useState("grey");
     const [isFormValid, setIsFormValid] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [formData, setFormData] = useState({
@@ -27,7 +26,6 @@ const WebForm: React.FC<WebFormProps> = (props) => {
         return whitespaceRegex.test(fieldValue);
     }
 
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} =  e.target;
         setFormData({ ...formData, [name]: value});
@@ -37,9 +35,9 @@ const WebForm: React.FC<WebFormProps> = (props) => {
         const isMessageEmpty = name === "message" && isFieldEmpty(value);
 
         setIsFormValid(!isNameEmpty && !isEmailInvalid && !isMessageEmpty);
+        setButtonColor(isFormValid ? 'white':'grey')
 
     };      
-
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -114,10 +112,7 @@ const WebForm: React.FC<WebFormProps> = (props) => {
                     required
                 />
             </div>
-           <div className={genericStyles.buttonDiv}><button  className={genericStyles.button} type="submit" disabled={!isFormValid}>Submit</button>
-            {/* <ToastContainer /> */}
-            </div>
-
+           <div className={genericStyles.buttonDiv}><button  className={genericStyles.button}  type="submit" disabled = {!isFormValid} style={{color: btnColor}}>Submit</button></div>
         </form>
         
             {successMessage && <div className={genericStyles.successMessage}>{successMessage}</div>}
