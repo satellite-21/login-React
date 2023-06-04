@@ -1,0 +1,79 @@
+$base-color-1: #181818;
+$base-color-2: #212121;
+
+$accent-color-1: #6c757d;
+
+$text-color-1: #fff;
+$text-color-2: rgb(196, 184, 166);
+
+$box-shadow-1: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+  rgba(0, 0, 0, 0.3) 0px -1px 7px -3px;
+
+$danger-color-1: rgb(172, 21, 21);
+$success-color-1: rgb(22, 190, 58);
+
+
+.button {
+    background-color: $base-color-2;
+    border: 2px solid $accent-color-1;
+    border-radius: 3px;
+    color: $text-color-1;
+    height: 30px;
+    width: 100px;
+    // margin-left: 87px;
+    // margin-right: 87px;
+    // margin-top: 10px;
+    // margin-bottom: 10px;
+    margin:auto
+
+    &:active {
+        background-color: $accent-color-1;
+      }
+    
+      &:hover {
+        border-color: $text-color-2;
+      }
+
+};
+
+.formContainer{
+
+  margin: auto;
+  border: 1px solid black;
+  border-style: dashed;
+  padding: 8px;
+  width: fit-content;
+  margin-top: 50px;
+};
+
+.labelInput{
+  
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+
+};
+h2{
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center
+
+};
+
+label{
+  margin-right: 10px;
+};
+
+.buttonDiv{
+  justify-content: center;
+  display: flex;
+};
+
+.successMessage{
+  justify-content: center;
+  display: flex;
+  color: rgb(0, 255, 0);
+  margin: 10px;
+  font-weight: bolder
+
+};
